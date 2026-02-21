@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://ch6xfgycysm1u"]
+
+[ext_resource type="PackedScene" uid="uid://dosv83hmhmeyl" path="res://assets/dungeon_assets/props/plate_food.glb" id="1_hqtqb"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mu3ua"]
+size = Vector3(1, 0.8, 1)
+
+[node name="Plate_Food" type="StaticBody3D"]
+
+[node name="plate_food" parent="." instance=ExtResource("1_hqtqb")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.40000007, 0)
+shape = SubResource("BoxShape3D_mu3ua")

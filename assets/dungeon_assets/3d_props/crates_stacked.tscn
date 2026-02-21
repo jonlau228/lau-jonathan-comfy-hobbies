@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://b0jwvy5n4tgs0"]
+
+[ext_resource type="PackedScene" uid="uid://cg1biys1mwdr8" path="res://assets/dungeon_assets/props/crates_stacked.glb" id="1_i00rv"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_oxbll"]
+size = Vector3(2.1000001, 2.1000001, 2.2)
+
+[node name="Crates_Stacked" type="StaticBody3D"]
+
+[node name="crates_stacked2" parent="." instance=ExtResource("1_i00rv")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0500001, 1.0500001, -2.9802322e-08)
+shape = SubResource("BoxShape3D_oxbll")

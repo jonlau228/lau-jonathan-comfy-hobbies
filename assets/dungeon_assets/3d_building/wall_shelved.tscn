@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://imfm0u4745d1"]
+
+[ext_resource type="PackedScene" uid="uid://0cqm1dafqhhm" path="res://assets/dungeon_assets/building/wall_shelved.glb" id="1_7dkpo"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tm01j"]
+size = Vector3(4, 4, 1)
+
+[node name="Wall_Shelved" type="StaticBody3D"]
+
+[node name="wall_shelved" parent="." instance=ExtResource("1_7dkpo")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.9802322e-07, 1.9999999, 0)
+shape = SubResource("BoxShape3D_tm01j")
