@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://vrmbppiaedg2"]
+[gd_scene load_steps=22 format=3 uid="uid://vrmbppiaedg2"]
 
 [ext_resource type="PackedScene" uid="uid://bs72ogkvdd7d6" path="res://addons/proto_controller/proto_controller.tscn" id="1_nnsk1"]
 [ext_resource type="PackedScene" uid="uid://chmm21hkhn1si" path="res://assets/dungeon_assets/3d_building/floor_stone.tscn" id="2_e3hyu"]
@@ -9,10 +9,15 @@
 [ext_resource type="PackedScene" uid="uid://d2vedy2xmajsi" path="res://assets/dungeon_assets/3d_building/wall_corner.tscn" id="6_xo05s"]
 [ext_resource type="PackedScene" uid="uid://i8v4gp00l0t3" path="res://assets/dungeon_assets/3d_building/wall_half_endcap.tscn" id="7_dss4m"]
 [ext_resource type="PackedScene" uid="uid://imfm0u4745d1" path="res://assets/dungeon_assets/3d_building/wall_shelved.tscn" id="8_7t5mc"]
+[ext_resource type="PackedScene" uid="uid://b0jwvy5n4tgs0" path="res://assets/dungeon_assets/3d_props/crates_stacked.tscn" id="8_lakw3"]
 [ext_resource type="PackedScene" uid="uid://bdfuw36nsahp5" path="res://assets/dungeon_assets/3d_building/ceiling.tscn" id="9_lakw3"]
 [ext_resource type="PackedScene" uid="uid://cia05psn1xxtg" path="res://assets/dungeon_assets/3d_building/wall.tscn" id="10_pm21f"]
 [ext_resource type="PackedScene" uid="uid://cpksnpdo2ai1s" path="res://assets/dungeon_assets/3d_building/wall_window_closed.tscn" id="11_2lf6f"]
 [ext_resource type="PackedScene" uid="uid://b22qnc77l5kfw" path="res://assets/dungeon_assets/3d_props/table_medium.tscn" id="13_jhx03"]
+[ext_resource type="PackedScene" uid="uid://c3xopu3qu3v5y" path="res://assets/dungeon_assets/3d_props/chair.tscn" id="15_pm21f"]
+[ext_resource type="PackedScene" uid="uid://jjwjqbqsbv4a" path="res://assets/dungeon_assets/3d_props/chest_gold.tscn" id="16_2lf6f"]
+[ext_resource type="PackedScene" uid="uid://icmse7rimdgm" path="res://assets/dungeon_assets/3d_props/banner_mounted.tscn" id="17_7iits"]
+[ext_resource type="PackedScene" uid="uid://c4gl6mr40pqa2" path="res://assets/dungeon_assets/3d_building/gazebo.tscn" id="18_lakw3"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_nnsk1"]
 sky_top_color = Color(0.17114481, 0.47025156, 0.69695014, 1)
@@ -1139,6 +1144,15 @@ transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, 9.89
 [node name="Wall_Corner4" parent="Area" instance=ExtResource("6_xo05s")]
 transform = Transform3D(1, 0, 1.7484555e-07, 0, 1, 0, -1.7484555e-07, 0, 1, 9.893527, -4.506271, -25.746826)
 
+[node name="Crates_Stacked" parent="Area" instance=ExtResource("8_lakw3")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -12.806475, -3.2062707, 15.753167)
+
+[node name="Crates_Stacked2" parent="Area" instance=ExtResource("8_lakw3")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -18.506475, -3.2062707, 15.753167)
+
+[node name="Crates_Stacked3" parent="Area" instance=ExtResource("8_lakw3")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -24.206474, -3.2062707, 15.753167)
+
 [node name="Small Building" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.7, 3.5, 1)
 
@@ -1429,3 +1443,18 @@ light_color = Color(1, 0.4666667, 0, 1)
 
 [node name="Table_Medium" parent="Big Building" instance=ExtResource("13_jhx03")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.4, -4.6, 0)
+
+[node name="Chair" parent="Big Building" instance=ExtResource("15_pm21f")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -8.205698, -4.618913, 1.6821947)
+
+[node name="Chair2" parent="Big Building" instance=ExtResource("15_pm21f")]
+transform = Transform3D(1.3113416e-07, 0, 1, 0, 1, 0, -1, 0, 1.3113416e-07, -8.205698, -4.618913, -1.6178055)
+
+[node name="Chest_Gold" parent="Big Building" instance=ExtResource("16_2lf6f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.5999994, -7.5)
+
+[node name="Banner_Mounted" parent="Big Building" instance=ExtResource("17_7iits")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.694302, -4.5189133, 9.082194)
+
+[node name="Gazebo" parent="." instance=ExtResource("18_lakw3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.29997, 0.41451952, 8.777025)
