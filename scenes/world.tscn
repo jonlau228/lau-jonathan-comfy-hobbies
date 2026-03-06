@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://vrmbppiaedg2"]
+[gd_scene load_steps=28 format=3 uid="uid://vrmbppiaedg2"]
 
 [ext_resource type="PackedScene" uid="uid://bs72ogkvdd7d6" path="res://addons/proto_controller/proto_controller.tscn" id="1_nnsk1"]
 [ext_resource type="PackedScene" uid="uid://chmm21hkhn1si" path="res://assets/dungeon_assets/3d_building/floor_stone.tscn" id="2_e3hyu"]
@@ -22,6 +22,7 @@
 [ext_resource type="PackedScene" uid="uid://c4gl6mr40pqa2" path="res://assets/dungeon_assets/3d_building/gazebo.tscn" id="18_lakw3"]
 [ext_resource type="PackedScene" uid="uid://cf7du3y2ww25u" path="res://assets/dungeon_assets/3d_building/portal.tscn" id="19_pm21f"]
 [ext_resource type="PackedScene" uid="uid://cvoa1l1so85vb" path="res://assets/dungeon_assets/3d_props/candles.tscn" id="22_ctatt"]
+[ext_resource type="Script" uid="uid://ci7pm3tywka6q" path="res://scripts/summon_portal.gd" id="23_kpybi"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_nnsk1"]
 sky_top_color = Color(0.17114481, 0.47025156, 0.69695014, 1)
@@ -36,6 +37,10 @@ background_mode = 2
 sky = SubResource("Sky_rwgxs")
 tonemap_mode = 2
 glow_enabled = true
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_ctatt"]
+height = 0.100000024
+radius = 2.0
 
 [node name="Node3D" type="Node3D"]
 
@@ -1472,22 +1477,35 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.29997, 0.41451952, 8.7770
 [node name="Portal" parent="Gazebo" instance=ExtResource("19_pm21f")]
 transform = Transform3D(1.0067661, 0, -1.1119452, 0, 1.5, 0, 1.1119452, 0, 1.0067661, 0, 2.0252998, 0)
 
-[node name="Node3D" type="Node3D" parent="."]
+[node name="Summon" type="Node3D" parent="."]
 
-[node name="Candles" parent="Node3D" instance=ExtResource("22_ctatt")]
+[node name="Candles" parent="Summon" instance=ExtResource("22_ctatt")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.6, 0.3, -24.5)
 
-[node name="Candles2" parent="Node3D" instance=ExtResource("22_ctatt")]
+[node name="Candles2" parent="Summon" instance=ExtResource("22_ctatt")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.6, 0.3, -14.5)
 
-[node name="Candles3" parent="Node3D" instance=ExtResource("22_ctatt")]
+[node name="Candles3" parent="Summon" instance=ExtResource("22_ctatt")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.6, 0.3, -17)
 
-[node name="Candles6" parent="Node3D" instance=ExtResource("22_ctatt")]
+[node name="Candles6" parent="Summon" instance=ExtResource("22_ctatt")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.6, 0.3, -21.900002)
 
-[node name="Candles4" parent="Node3D" instance=ExtResource("22_ctatt")]
+[node name="Candles4" parent="Summon" instance=ExtResource("22_ctatt")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.8, 0.3, -21.9)
 
-[node name="Candles5" parent="Node3D" instance=ExtResource("22_ctatt")]
+[node name="Candles5" parent="Summon" instance=ExtResource("22_ctatt")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.8, 0.3, -16.9)
+
+[node name="Area3D" type="Area3D" parent="Summon"]
+script = ExtResource("23_kpybi")
+
+[node name="Portal" parent="Summon/Area3D" instance=ExtResource("19_pm21f")]
+transform = Transform3D(2.1650634, 0, -1.25, 0, 2.5, 0, 1.25, 0, 2.1650634, 11.499999, 1.9, -19.7)
+visible = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Summon/Area3D"]
+transform = Transform3D(2.1650622, 0, -1.2500021, 0, 2.4999995, 0, 1.2500021, 0, 2.1650622, 11.499999, 0.5250008, -19.7)
+shape = SubResource("CylinderShape3D_ctatt")
+
+[connection signal="body_entered" from="Summon/Area3D" to="Summon/Area3D" method="_on_body_entered"]
