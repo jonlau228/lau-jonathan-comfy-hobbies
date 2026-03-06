@@ -1,10 +1,12 @@
-[gd_scene load_steps=22 format=3 uid="uid://vrmbppiaedg2"]
+[gd_scene load_steps=26 format=3 uid="uid://vrmbppiaedg2"]
 
 [ext_resource type="PackedScene" uid="uid://bs72ogkvdd7d6" path="res://addons/proto_controller/proto_controller.tscn" id="1_nnsk1"]
 [ext_resource type="PackedScene" uid="uid://chmm21hkhn1si" path="res://assets/dungeon_assets/3d_building/floor_stone.tscn" id="2_e3hyu"]
 [ext_resource type="PackedScene" uid="uid://cws8qlfov4l3l" path="res://assets/dungeon_assets/3d_building/pillar.tscn" id="3_q5onr"]
 [ext_resource type="PackedScene" uid="uid://crd66ivpo20ps" path="res://assets/dungeon_assets/3d_building/floor_wood.tscn" id="4_jhx03"]
+[ext_resource type="PackedScene" uid="uid://csv2ch0licuol" path="res://assets/dungeon_assets/3d_props/table_small.tscn" id="4_oo54l"]
 [ext_resource type="PackedScene" uid="uid://mpprfexo752m" path="res://assets/dungeon_assets/3d_props/torch.tscn" id="4_q5onr"]
+[ext_resource type="PackedScene" uid="uid://bo67uresm7wh" path="res://assets/dungeon_assets/3d_props/keyring.tscn" id="5_kpybi"]
 [ext_resource type="PackedScene" uid="uid://bs37yt1s2v31p" path="res://assets/dungeon_assets/3d_building/wall_arched.tscn" id="5_o8fc1"]
 [ext_resource type="PackedScene" uid="uid://d2vedy2xmajsi" path="res://assets/dungeon_assets/3d_building/wall_corner.tscn" id="6_xo05s"]
 [ext_resource type="PackedScene" uid="uid://i8v4gp00l0t3" path="res://assets/dungeon_assets/3d_building/wall_half_endcap.tscn" id="7_dss4m"]
@@ -18,6 +20,8 @@
 [ext_resource type="PackedScene" uid="uid://jjwjqbqsbv4a" path="res://assets/dungeon_assets/3d_props/chest_gold.tscn" id="16_2lf6f"]
 [ext_resource type="PackedScene" uid="uid://icmse7rimdgm" path="res://assets/dungeon_assets/3d_props/banner_mounted.tscn" id="17_7iits"]
 [ext_resource type="PackedScene" uid="uid://c4gl6mr40pqa2" path="res://assets/dungeon_assets/3d_building/gazebo.tscn" id="18_lakw3"]
+[ext_resource type="PackedScene" uid="uid://cf7du3y2ww25u" path="res://assets/dungeon_assets/3d_building/portal.tscn" id="19_pm21f"]
+[ext_resource type="PackedScene" uid="uid://cvoa1l1so85vb" path="res://assets/dungeon_assets/3d_props/candles.tscn" id="22_ctatt"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_nnsk1"]
 sky_top_color = Color(0.17114481, 0.47025156, 0.69695014, 1)
@@ -184,6 +188,12 @@ transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, -
 light_energy = 5.0
 spot_range = 10.0
 spot_angle = 70.0
+
+[node name="Table_Small" parent="2nd Floor" instance=ExtResource("4_oo54l")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.871972, 0, -7.610627)
+
+[node name="Keyring" parent="2nd Floor" instance=ExtResource("5_kpybi")]
+transform = Transform3D(-3.4969112e-08, 0, -0.8, 0, 0.8, 0, 0.8, 0, -3.4969112e-08, 5.7999983, 1, -7.7)
 
 [node name="Stairs" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.606475, 3.6062708, -2.453168)
@@ -1458,3 +1468,26 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.694302, -4.5189133, 9.08219
 
 [node name="Gazebo" parent="." instance=ExtResource("18_lakw3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.29997, 0.41451952, 8.777025)
+
+[node name="Portal" parent="Gazebo" instance=ExtResource("19_pm21f")]
+transform = Transform3D(1.0067661, 0, -1.1119452, 0, 1.5, 0, 1.1119452, 0, 1.0067661, 0, 2.0252998, 0)
+
+[node name="Node3D" type="Node3D" parent="."]
+
+[node name="Candles" parent="Node3D" instance=ExtResource("22_ctatt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.6, 0.3, -24.5)
+
+[node name="Candles2" parent="Node3D" instance=ExtResource("22_ctatt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.6, 0.3, -14.5)
+
+[node name="Candles3" parent="Node3D" instance=ExtResource("22_ctatt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.6, 0.3, -17)
+
+[node name="Candles6" parent="Node3D" instance=ExtResource("22_ctatt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.6, 0.3, -21.900002)
+
+[node name="Candles4" parent="Node3D" instance=ExtResource("22_ctatt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.8, 0.3, -21.9)
+
+[node name="Candles5" parent="Node3D" instance=ExtResource("22_ctatt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.8, 0.3, -16.9)
